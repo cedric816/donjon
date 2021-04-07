@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donjon diabolique</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    let vieJoueur;
+    let vieMonstre;
+    let degatAleatoire;
+
+    function play(){
+        degatAleatoire = Math.floor(Math.random()*6)+1;
+        vieJoueur -= degatAleatoire;
+        if(vieJoueur<1){
+            alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat au joueur. 💀 le joueur est mort...'); 
+            init();
+            } else {
+                alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat au joueur. Le joueur a '+vieJoueur+' points de vie');
+            }
+        degatAleatoire = Math.floor(Math.random()*5)+1;
+        vieMonstre -= degatAleatoire;
+        if(vieMonstre<1){
+            alert('⚔️ Le Joueur attaque et inflige '+degatAleatoire+' points de dégat au monstre. 💀 Le monstre est mort...'); 
+            init();
+        } else {
+            alert('⚔️ Le Joueur attaque et inflige '+degatAleatoire+' points de dégat au monstre. Le monstre a '+vieMonstre+' points de vie');
+            play();
+        }
+    }
+
+    function init(){
+        vieJoueur = 20;
+        vieMonstre = 20;
+        alert('🏰 Nouvelle partie! 🏰');
+        alert('Joueur et Monstre ont 20 points de vie chacun. Le monstre attaque en premier...');
+        play();
+    }
+
+    init();
+</script>
+</html>
