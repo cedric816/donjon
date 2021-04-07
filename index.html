@@ -11,19 +11,25 @@
 </body>
 
 <script>
+//variables
     let vieJoueur;
     let vieMonstre;
     let degatAleatoire;
-
+    
+ //fonction play qui gère le déroulé du jeu  
     function play(){
+        //on définit un dégat aléatoire qu'on soustrait à la vie du joueur
         degatAleatoire = Math.floor(Math.random()*6)+1;
         vieJoueur -= degatAleatoire;
+        //si le joueur a un nombre de vie de 0 ou moins, on l'affiche et on réinitialise la partie avec init()
         if(vieJoueur<1){
             alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat au joueur. 💀 le joueur est mort...'); 
             init();
+            //sinon on affiche les dégats et les vies restantes et on passe à l'attaque du joueur
             } else {
                 alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat au joueur. Le joueur a '+vieJoueur+' points de vie');
             }
+        //idem que ci-desuss :)
         degatAleatoire = Math.floor(Math.random()*6)+1;
         vieMonstre -= degatAleatoire;
         if(vieMonstre<1){
@@ -35,6 +41,7 @@
         }
     }
 
+//pour réinitialiser une partie, on remet les vies à 20 
     function init(){
         vieJoueur = 20;
         vieMonstre = 20;
@@ -42,7 +49,8 @@
         alert('Joueur et Monstre ont 20 points de vie chacun. Le monstre attaque en premier...');
         play();
     }
-
+    
+//au cahrgement de la page, on lance la fonction init()
     init();
 </script>
 </html>
