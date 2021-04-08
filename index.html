@@ -44,7 +44,8 @@
         vieJoueur = 20;
         vieMonstre = 20;
         alert('🏰 Nouvelle partie! 🏰');
-        nomJoueur = prompt('Quel est ton pseudo?');
+        while(!nomJoueur){
+            nomJoueur = prompt('Quel est ton pseudo?')};
         alert('tiens-toi prêt '+nomJoueur+' !');
         alert(nomJoueur+' et le Monstre ont 20 points de vie chacun. Le monstre attaque en premier...');
         play();
