@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donjon diabolique</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    let vieJoueur;
+    let nomJoueur
+    let vieMonstre;
+    let degatAleatoire;
+
+    function play(){
+        degatAleatoire = Math.floor(Math.random()*6)+1;
+        vieJoueur -= degatAleatoire;
+        if(vieJoueur<1){
+            alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat à '+nomJoueur+'. Ce qui lui est fatal...'); 
+            alert('💀 '+nomJoueur+ ' est mort...');
+            alert('🏆 LE MONSTRE A GAGNE! 🏆');
+            init();
+            } else {
+                alert('⚔️ Le Monstre attaque et inflige '+degatAleatoire+' points de dégat à '+nomJoueur+'. ❤️ '+nomJoueur+ ' a '+vieJoueur+' points de vie');
+            }
+        degatAleatoire = Math.floor(Math.random()*6)+1;
+        vieMonstre -= degatAleatoire;
+        if(vieMonstre<1){
+            alert('⚔️ '+nomJoueur+' attaque et inflige '+degatAleatoire+' points de dégat au monstre. Ce qui lui est fatal...'); 
+            alert('💀 Le monstre est mort ');
+            alert('🏆'+ nomJoueur+' A GAGNE! 🏆');
+            init();
+        } else {
+            alert('⚔️ '+nomJoueur+' attaque et inflige '+degatAleatoire+' points de dégat au monstre. ❤️ Le monstre a '+vieMonstre+' points de vie');
+            play();
+        }
+    }
+
+    function init(){
+        vieJoueur = 20;
+        vieMonstre = 20;
+        alert('🏰 Nouvelle partie! 🏰');
+        nomJoueur = prompt('Quel est ton pseudo?');
+        alert('tiens-toi prêt '+nomJoueur+' !');
+        alert(nomJoueur+' et le Monstre ont 20 points de vie chacun. Le monstre attaque en premier...');
+        play();
+    }
+
+    init();
+</script>
+</html>
